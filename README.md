@@ -80,8 +80,7 @@ This repository is part of my **SQL learning journey** and serves as a practical
 
 **MD ALTAF HOSSAIN SUNNY**  
 📍 Data Analytics Enthusiast  
-📧 [www.altafhossainsunny15522gmail.com]
-💼 [LinkedIn / Portfolio] *(optional)*  
+📧 [www.altafhossainsunny1552gmail.com]  
 
 ---
 

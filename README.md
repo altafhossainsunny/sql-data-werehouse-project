@@ -2,6 +2,8 @@
 
 ![High Level Architecture](./Data%20ware%20house.png)
 
+# The data flow of the warehouse
+![Data flow](./Data Flow.png)
 ## 📘 Overview
 
 Hi, I’m **MD ALTAF HOSSAIN SUNNY**, an aspiring **Data Analyst** currently exploring the foundations of **Data Warehousing** using **Microsoft SQL Server**.  

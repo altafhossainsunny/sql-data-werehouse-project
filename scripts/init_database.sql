@@ -1,30 +1,22 @@
-/*=============================================================
-  Project: Data Warehousing with SQL Server
-  Author:  MD ALTAF HOSSAIN SUNNY
-  Purpose: Create Data Warehouse and Schemas
-==============================================================*/
+/*
+=============================================================
+Create Database and Schemas
+=============================================================
+Script Purpose:
+    This script creates a new database named 'DataWarehouse' after checking if it already exists. 
+    If the database exists, it is dropped and recreated. Additionally, the script sets up three schemas 
+    within the database: 'bronze', 'silver', and 'gold'.
+	
+WARNING:
+    Running this script will drop the entire 'DataWarehouse' database if it exists. 
+    All data in the database will be permanently deleted. Proceed with caution 
+    and ensure you have proper backups before running this script.
+*/
 
-/*===============================================================
-
-  ⚠️  WARNING:
-  --------------------------------------------------------------
-  - This script will DROP the existing 'DataWarehouse' database 
-    if it already exists in your SQL Server instance.
-  - All data inside that database will be permanently deleted.
-  - Make sure to BACKUP any important data before running this.
-  --------------------------------------------------------------
-==============================================================*/
-
---=============================================================
--- Step 1: Use master database
---=============================================================
 USE master;
 GO
 
---=============================================================
--- Step 2: Check if the DataWarehouse database already exists
---          If exists, set to SINGLE_USER and drop it safely
---=============================================================
+-- Drop and recreate the 'DataWarehouse' database
 IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'DataWarehouse')
 BEGIN
     ALTER DATABASE DataWarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
@@ -32,19 +24,14 @@ BEGIN
 END;
 GO
 
---=============================================================
--- Step 3: Create a new DataWarehouse database
---=============================================================
+-- Create the 'DataWarehouse' database
 CREATE DATABASE DataWarehouse;
 GO
 
--- Switch to the newly created database
 USE DataWarehouse;
 GO
 
---=============================================================
--- Step 4: Create separate schemas for data layers
---=============================================================
+-- Create Schemas
 CREATE SCHEMA bronze;
 GO
 
@@ -53,9 +40,3 @@ GO
 
 CREATE SCHEMA gold;
 GO
-
---=============================================================
--- ✅ Data Warehouse successfully initialized
---    Schemas created: bronze, silver, gold
---=============================================================
-PRINT '✅ Data Warehouse and Schemas created successfully!';
